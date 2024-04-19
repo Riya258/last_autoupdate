@@ -1,0 +1,38 @@
+{
+  "name": "last_autoupdate",
+  "version": "1.0.0",
+  "description": "This is AutoUpdatable App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --linux deb -p always --arm64",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dir":"electron-builder --dir",
+    "dist":"electron-builder"
+  },
+  "build": {
+    "linux": {
+      "category": "Utility",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "asarUnpack": "node_modules/macos-notification-state/**"
+    },
+    "rpm": {
+      "fpm": [
+        "--rpm-rpmbuild-define",
+        "_build_id_links none"
+      ]
+    }
+  },
+  "author": "Riya258 <riyachoudhary8288@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "electron-log": "^5.1.2"
+  }
+}
